@@ -38,7 +38,6 @@ jobs:
         #   script: |
         #     nohup bash ~/project/DialogueRobot/deploy.sh > /dev/null 2>&1 &
         run: |
-          sudo apt-get install sshpass
           echo '#!/bin/bash' >> test.sh
           echo 'trap "pkill -f $(basename $0);exit 1" SIGINT SIGTERM EXIT ERR' >> test.sh
           echo 'sshpass -p 'dengbowen' ssh dengbowen@47.101.147.73 "nohup bash ~/project/DialogueRobot/deploy.sh > /dev/null 2>&1 &"' >> test.sh
