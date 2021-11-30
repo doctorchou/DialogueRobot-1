@@ -14,4 +14,4 @@ if [ -n "$pid" ]; then
     sudo kill -9 $pid;
 fi
 git -C ~/project/DialogueRobot pull
-nohup sudo ~/.conda/envs/robot/bin/python ~/project/DialogueRobot/DiaRobot/manage.py runserver 0.0.0.0:80 > /dev/null 2>&1 &
+sudo ~/.conda/envs/robot/bin/python ~/project/DialogueRobot/DiaRobot/manage.py runserver 0.0.0.0:80
