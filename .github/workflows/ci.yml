@@ -29,6 +29,6 @@ jobs:
           python manage.py test
 
       - name: Deploy
-        if: ${{ failure() }}
+        if: ${{ success() }}
         run: |
           echo "ok!"

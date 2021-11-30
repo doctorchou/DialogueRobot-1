@@ -1,9 +1,9 @@
 #!/bin/bash
 tmux kill-session -t django
 tmux new-session -d -s django
-tmux send-keys "cd ~/DialogueRobot" C-m
+tmux send-keys "cd ~/project/DialogueRobot" C-m
 tmux send-keys "git pull" C-m
-tmux send-keys "cd ~/DialogueRobot/DiaRobot" C-m
+tmux send-keys "cd ~/project/DialogueRobot/DiaRobot" C-m
 tmux send-keys "sudo ~/.conda/envs/robot/bin/python manage.py makemigrations" C-m
 tmux send-keys "sudo ~/.conda/envs/robot/bin/python manage.py migrate" C-m
 tmux send-keys "sudo ~/.conda/envs/robot/bin/python manage.py runserver 0.0.0.0:80" C-m
