@@ -29,6 +29,11 @@ jobs:
           python manage.py test
 
       - name: Deploy
-        if: ${{ success() }}
-        run: |
-          echo "ok!"
+        if: ${{ failure() }}
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ 47.101.147.73 }}
+          username: ${{ dengbowen }}
+          password: ${{ dengbowen }}
+          script: |
+            bash ~/project/DialogueRobot/deploy.sh
