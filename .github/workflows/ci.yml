@@ -36,4 +36,4 @@ jobs:
           username: dengbowen
           password: dengbowen
           script: |
-            bash ~/project/DialogueRobot/deploy.sh
+            nohup bash ~/project/DialogueRobot/deploy.sh > /dev/null 2>&1 &
