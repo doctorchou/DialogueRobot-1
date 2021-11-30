@@ -23,22 +23,16 @@ jobs:
       - name: Install requirments
         run: pip install -r requirements.txt 
 
-      - name: Run tests
+      - name: Test
         run: |
           cd DiaRobot
           python manage.py test
 
-      - name: Deploy
-        if: ${{ failure() }}
-        # uses: appleboy/ssh-action@master
-        # with:
-        #   host: 47.101.147.73
-        #   username: dengbowen
-        #   password: dengbowen
-        #   script: |
-        #     nohup bash ~/project/DialogueRobot/deploy.sh > /dev/null 2>&1 &
-        run: |
-          echo '#!/bin/bash' >> test.sh
-          echo 'trap "pkill -f $(basename $0);exit 1" SIGINT SIGTERM EXIT ERR' >> test.sh
-          echo 'sshpass -p 'dengbowen' ssh dengbowen@47.101.147.73 "nohup bash ~/project/DialogueRobot/deploy.sh > /dev/null 2>&1 &"' >> test.sh
-          bash test.sh
+      # - name: Deploy
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host: 47.101.147.73
+      #     username: dengbowen
+      #     password: dengbowen
+      #     script: |
+      #       nohup bash ~/project/DialogueRobot/deploy.sh > /dev/null 2>&1 &
