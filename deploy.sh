@@ -9,10 +9,9 @@
 # tmux send-keys "sudo ~/.conda/envs/robot/bin/python manage.py runserver 0.0.0.0:80" C-m
 
 port=80
-pid=$(netstat -nlp | grep :$port | awk '{print $7}' | awk -F"/" '{print $1}')
+pid=$(sudo netstat -nlp | grep :$port | awk '{print $7}' | awk -F"/" '{print $1}')
 if [ -n "$pid" ]; then
-    kill -9 $pid;
+    sudo kill -9 $pid;
 fi
-
 git -C ~/project/DialogueRobot pull
 sudo ~/.conda/envs/robot/bin/python ~/project/DialogueRobot/DiaRobot/manage.py runserver 0.0.0.0:80
