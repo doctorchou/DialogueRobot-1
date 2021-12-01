@@ -28,11 +28,11 @@ jobs:
           cd DiaRobot
           python manage.py test
 
-      # - name: Deploy
-      #   uses: appleboy/ssh-action@master
-      #   with:
-      #     host: 47.101.147.73
-      #     username: dengbowen
-      #     password: dengbowen
-      #     script: |
-      #       nohup bash ~/project/DialogueRobot/deploy.sh > /dev/null 2>&1 &
+      - name: Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: 47.101.147.73
+          username: dengbowen
+          password: dengbowen
+          script: |
+            git -C ~/project/DialogueRobot pull

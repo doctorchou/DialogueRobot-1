@@ -33,7 +33,7 @@ def handle_wx(request):
         msg = parse_message(request.body)
 
         if msg.type == 'text':
-            reply = create_reply('文本消息' + msg.content, msg)
+            reply = create_reply('文本消息1' + msg.content, msg)
 
         elif msg.type == 'voice':
             reply = create_reply('语音消息', msg)
