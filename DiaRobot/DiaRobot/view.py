@@ -7,6 +7,7 @@ from wechatpy.exceptions import InvalidSignatureException
 from wechatpy.replies import BaseReply
 
 from DiaRobot.Robot.nlp import Preprocess
+from DiaRobot.Robot.nlp import Status
 
 TOKEN = 'dengzhouzhang'
 
@@ -33,7 +34,7 @@ def handle_wx(request):
         msg = parse_message(request.body)
 
         if msg.type == 'text':
-            reply = create_reply('文本消息1' + msg.content, msg)
+            reply = create_reply('文本消息' + msg.content, msg)
 
         elif msg.type == 'voice':
             reply = create_reply('语音消息', msg)
@@ -52,3 +53,18 @@ def handle_wx(request):
         #1.调用nlp.py得到语义树
         #2.根据语义树选择对应的分支模块，导航、预约、查询、推荐
         #3.生成回答并返回
+
+        # pre = Preprocess(msg.content)
+        # pre.MsgProcess()
+
+        # if pre.status == Status.navi:
+        #     pass
+        # elif pre.status == Status.que:
+        #     pass
+        # elif pre.status == Status.recom:
+        #     pass
+        # elif pre.status == Status.reser:
+        #     pass
+        ## 用户要求不明确，需要重新输入
+        # elif pre.status == Status.unclear:
+        #     pass

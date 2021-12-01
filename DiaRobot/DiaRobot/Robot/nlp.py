@@ -10,6 +10,7 @@ class Status(Enum):
     que = 3
     reser = 4
     recom = 5
+    unclear = 6
 
 class Preprocess(object):
     def __init__(self, msg):
@@ -23,12 +24,6 @@ class Preprocess(object):
     def MsgProcess(self):
         pass
 
-    #todo
-    #根据语义树选择分支功能
-    #需要正确处理分支功能不包含的功能
-    def DemandProcess(self):
-        self.MsgProcess()
-        pass
 
 
 
