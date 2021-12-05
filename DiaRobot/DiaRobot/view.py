@@ -37,8 +37,10 @@ def handle_wx(request):
     # POST方式用于接受和返回请求
     else:
         msg = parse_message(request.body)
-        response = DiaRobot.Robot.query.Query(msg)
+        reply = DiaRobot.Robot.query.Query(msg)
+        response = HttpResponse(reply.render(), content_type="application/xml")
         return response
+
         #begin reply生成示例
         # reply = None
         # msg = parse_message(request.body)

@@ -52,10 +52,11 @@ def queryweather(num, msg):
     for i in range(0, daycount):
         res = res + date[i] + '  '+ weather[i] + '  '+ temp_h[i] + "/" + temp_l[i] + '  '+wind[i] + windlevel[i]+'\n'
     reply = create_reply(res, msg)
-    response = HttpResponse(reply.render(), content_type="application/xml")
-    return response
+    return reply
 
 
 def Query(msg):
     if msg.content =='查询天气':
         return queryweather("7", msg)
+    else:
+        return create_reply("123", msg)
