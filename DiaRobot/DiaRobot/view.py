@@ -14,7 +14,7 @@ from DiaRobot.Robot.navigation import Navigation
 from DiaRobot.Robot.query import Query
 from DiaRobot.Robot.reserve import Reserve
 from DiaRobot.Robot.recommend import Recommend
-from Robot.query import *
+from DiaRobot.Robot.query import *
 
 TOKEN = 'dengzhouzhang'
 
