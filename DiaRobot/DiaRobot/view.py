@@ -36,29 +36,29 @@ def handle_wx(request):
 
     # POST方式用于接受和返回请求
     else:
-        msg = parse_message(request.body)
-        reply = DiaRobot.Robot.query.Query(msg)
-        response = HttpResponse(reply.render(), content_type="application/xml")
-        return response
-
-        #begin reply生成示例
-        # reply = None
         # msg = parse_message(request.body)
-
-        # if msg.type == 'text':
-        #     reply = create_reply('文本消息' + msg.content, msg)
-
-        # elif msg.type == 'voice':
-        #     reply = create_reply('语音消息', msg)
-
-        # else:
-        #     pass
-
-        # if not reply or not isinstance(reply, BaseReply):
-        #     reply = create_reply('暂不支持您所发送的消息类型哟~ 回复“帮助”查看使用说明。', msg)
-
+        # reply = DiaRobot.Robot.query.Query(msg)
         # response = HttpResponse(reply.render(), content_type="application/xml")
         # return response
+
+        #begin reply生成示例
+        reply = None
+        msg = parse_message(request.body)
+
+        if msg.type == 'text':
+            reply = create_reply('文本消息' + msg.content, msg)
+
+        elif msg.type == 'voice':
+            reply = create_reply('语音消息', msg)
+
+        else:
+            pass
+
+        if not reply or not isinstance(reply, BaseReply):
+            reply = create_reply('暂不支持您所发送的消息类型哟~ 回复“帮助”查看使用说明。', msg)
+
+        response = HttpResponse(reply.render(), content_type="application/xml")
+        return response
         #end 示例
 
         #todo

@@ -51,6 +51,7 @@ def queryweather(num, msg):
     res = ""
     for i in range(0, daycount):
         res = res + date[i] + '  '+ weather[i] + '  '+ temp_h[i] + "/" + temp_l[i] + '  '+wind[i] + windlevel[i]+'\n'
+    print(res)
     reply = create_reply(res, msg)
     return reply
 
@@ -60,3 +61,5 @@ def Query(msg):
         return queryweather("7", msg)
     else:
         return create_reply("123", msg)
+
+queryweather("7",1)
