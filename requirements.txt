@@ -1,3 +1,6 @@
 django==2.2
 cryptography
 wechatpy
+jieba
+lxml
+bs4

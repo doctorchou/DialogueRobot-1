@@ -29,6 +29,7 @@ jobs:
           python manage.py test
 
       - name: Deploy
+        #如果需要在测试没通过的情况下部署到服务器上，请将下面这行代码消注
         if: ${{ failure() }}
         uses: appleboy/ssh-action@master
         with:
